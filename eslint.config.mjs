@@ -23,6 +23,7 @@ export default tseslint.config({
         "dot-notation": "error",
         "@typescript-eslint/no-misused-promises": "off",
         "@typescript-eslint/require-await": "off",
+        "@typescript-eslint/unbound-method": "off",
     },
     ignores: ["dist", "node_modules", "**/*.config.mjs", "**/*.js"],
 });
