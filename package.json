@@ -4,7 +4,7 @@
     "description": "A catalog management service",
     "main": "index.js",
     "scripts": {
-        "dev": "cross-env NODE_ENV=development  nodemon src/server.ts",
+        "dev": "cross-env NODE_ENV=development nodemon src/server.ts",
         "format:check": "prettier . --check",
         "format:fix": "prettier . --write",
         "lint": "eslint .",
@@ -46,9 +46,11 @@
         ]
     },
     "dependencies": {
+        "@aws-sdk/client-s3": "^3.879.0",
         "@types/express-fileupload": "^1.5.1",
         "config": "^4.1.1",
         "cookie-parser": "^1.4.7",
+        "cross-env": "^10.0.0",
         "dotenv": "^16.4.5",
         "express": "^4.19.2",
         "express-fileupload": "^1.5.2",
