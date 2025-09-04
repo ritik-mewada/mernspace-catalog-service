@@ -18,6 +18,6 @@ export default [
     body("categoryId").exists().withMessage("Category id field is required"),
     body("image").custom((value, { req }) => {
         if (!req.files) throw new Error("product image is required");
-        return false;
+        return true;
     }),
 ];
