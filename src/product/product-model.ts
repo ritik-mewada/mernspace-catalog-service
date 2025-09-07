@@ -40,7 +40,7 @@ const productSchema = new mongoose.Schema(
             type: Map,
             of: priceConfigurationSchema,
         },
-        arributes: [attributeValueSchema],
+        attributes: [attributeValueSchema],
         tenantId: {
             type: String,
             required: true,

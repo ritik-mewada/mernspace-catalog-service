@@ -15,7 +15,6 @@ export class ProductController {
         private productService: ProductService,
         private storage: FileStorage,
     ) {}
-
     create = async (req: Request, res: Response, next: NextFunction) => {
         const result = validationResult(req);
         if (!result.isEmpty()) {
@@ -51,12 +50,55 @@ export class ProductController {
             image: imageName,
         };
 
-        const newProduct = await this.productService.createProdcut(
+        const newProduct = await this.productService.createProduct(
             product as unknown as Product,
         );
 
         res.json({ id: newProduct._id });
     };
+
+    // create = async (req: Request, res: Response, next: NextFunction) => {
+
+    //     const result = validationResult(req);
+    //     if (!result.isEmpty()) {
+    //         return next(createHttpError(400, result.array()[0].msg as string));
+    //     }
+
+    //     const image = req.files!.image as UploadedFile;
+    //     const imageName = uuidv4();
+
+    //     await this.storage.upload({
+    //         filename: imageName,
+    //         fileData: image.data.buffer as ArrayBuffer,
+    //     });
+
+    //     const {
+    //         name,
+    //         description,
+    //         priceConfiguration,
+    //         attributes,
+    //         tenantId,
+    //         categoryId,
+    //         isPublish,
+    //     } = req.body;
+
+    //     const product = {
+    //         name,
+    //         description,
+    //         priceConfiguration: JSON.parse(priceConfiguration as string),
+    //         attributes: JSON.parse(attributes as string),
+    //         tenantId,
+    //         categoryId,
+    //         isPublish,
+    //         image: imageName,
+    //     };
+
+    //     const newProduct = await this.productService.createProdcut(
+    //         product as unknown as Product,
+    //     );
+
+    //     res.json({ id: newProduct._id });
+    // };
 
     update = async (req: Request, res: Response, next: NextFunction) => {
         const result = validationResult(req);

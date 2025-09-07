@@ -3,7 +3,7 @@ import productModel from "./product-model";
 import { Filter, PaginateQuery, Product } from "./product-types";
 
 export class ProductService {
-    async createProdcut(product: Product) {
+    async createProduct(product: Product) {
         return (await productModel.create(product)) as Product;
     }
 
